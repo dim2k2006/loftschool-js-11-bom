@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="style.css">
+
+        <title>Cookies</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="addCookie">
+                <h3>Добавить cookie</h3>
+
+                <form class="addCookie__form">
+                    <div class="row">
+                        <label for="name">Имя:</label>
+                        <input type="text" name="name" id="name" value="">
+                    </div>
+                    <div class="row">
+                        <label for="name">Значение:</label>
+                        <input type="text" name="data" id="data" value="">
+                    </div>
+                    <div class="row">
+                        <label for="name">Срок годности (количество дней):</label>
+                        <input type="text" name="time" id="time" value="">
+                    </div>
+                    <div class="row">
+                        <button type="submit" data-action="add">Добавить</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="container">
+                <table>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Значение</th>
+                        <th>Действие</th>
+                    </tr>
+                </table>
+                <table class="table">
+
+                </table>
+            </div>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>

@@ -1,10 +1,17 @@
 var action = {
+    wrapper: document.querySelector('.wrapper'),
     table: document.querySelector('.table'),
+    form: document.querySelector('.addCookie__form'),
+    inputName: document.querySelector('input[name="name"]'),
+    inputData: document.querySelector('input[name="data"]'),
+    inputTime: document.querySelector('input[name="time"]'),
 
     setupListener: function() {
         var __this = this;
 
-        this.table.addEventListener('click', function(event) {
+        this.wrapper.addEventListener('click', function(event) {
+            event.preventDefault();
+
             var target = event.target,
                 action = target.getAttribute('data-action');
 
@@ -24,6 +31,23 @@ var action = {
             document.cookie = key +'=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 
             this.getCookies();
+
+        }
+    },
+    add: function(target) {
+        var name = this.inputName.value,
+            value = this.inputData.value,
+            time = this.inputTime.value;
+
+        if (name !== '' && value !== '' && time !== '') {
+
+            document.cookie = `${name}=${value}`;
+            this.getCookies();
+            this.form.reset();
+
+        } else {
+
+            alert('Заполните все поля формы');
 
         }
     },

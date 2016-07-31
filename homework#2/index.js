@@ -28,7 +28,7 @@ var action = {
 
         if (remove) {
 
-            document.cookie = key +'=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            document.cookie = key +'=; Expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
 
             this.getCookies();
 
@@ -37,11 +37,16 @@ var action = {
     add: function(target) {
         var name = this.inputName.value,
             value = this.inputData.value,
-            time = this.inputTime.value;
+            days = this.inputTime.value,
+            expires = '',
+            date = new Date();
+            date.setTime(date.getTime()+(days*24*60*60*1000));
+
+        expires = "; expires="+date.toGMTString();
 
         if (name !== '' && value !== '' && time !== '') {
 
-            document.cookie = `${name}=${value}`;
+            document.cookie = `${name}=${value}${expires}; path=/`;
             this.getCookies();
             this.form.reset();
 
